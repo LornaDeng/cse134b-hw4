@@ -34,3 +34,4 @@ Then open `http://localhost:4173/`.
 The two form pages were checked with a local HTML5 validator. Browser testing covered native validation with no scripts, custom validation, mouse and keyboard submission, error-history serialization, successful httpbin responses, theme persistence, light/dark readability, and a 390-pixel-wide viewport without horizontal page scrolling.
 
 GitHub Pages publishes from the repository root on the `main` branch. No build command or framework is required.
+The published pages use root-level static assets so every required resource is served directly by GitHub Pages.
