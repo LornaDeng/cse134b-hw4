@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A progressively enhanced contact form in Wenqing Deng's portfolio.">
+  <title>Enhanced Contact Form | Wenqing Deng</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="theme.js" defer></script>
+  <script src="form.js" defer></script>
+</head>
+<body>
+  <header>
+    <p><a href="index.html"><span translate="no">Wenqing Deng</span></a></p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="form-no-js.html">HTML Form</a></li>
+        <li><a href="form-with-js.html" aria-current="page">JS Form</a></li>
+      </ul>
+    </nav>
+    <div class="theme-controls js-only">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Switch to dark theme</button>
+    </div>
+  </header>
+  <main id="main-content">
+    <h1>JavaScript-enhanced contact form</h1>
+    <p>JavaScript adds specific feedback, a character counter, and error history while preserving the form's native HTML behavior.</p>
+
+    <form id="contact-form" class="contact-form" action="https://httpbin.org/post" method="post">
+      <p class="form-intro"><span class="required-note"><span class="required-marker" aria-hidden="true">*</span> Required field.</span>
+      Enter a name of 1–100 characters and a comment of 10–1,000 characters.</p>
+
+      <div class="form-field">
+        <label for="name">Name <span class="required-marker" aria-hidden="true">*</span></label>
+        <p class="field-instructions" id="name-instructions">Enter your name. One-character names and punctuation such as apostrophes and hyphens are accepted.</p>
+        <input id="name" name="name" type="text" autocomplete="name" required minlength="1" maxlength="100"
+               aria-describedby="name-instructions name-error" data-label="Name">
+      </div>
+
+      <div class="form-field">
+        <label for="email">Email <span class="required-marker" aria-hidden="true">*</span></label>
+        <p class="field-instructions" id="email-instructions">Enter an address in a format such as name@example.com.</p>
+        <input id="email" name="email" type="email" autocomplete="email" required
+               aria-describedby="email-instructions email-error" data-label="Email">
+      </div>
+
+      <div class="form-field">
+        <label for="comments">Comments <span class="required-marker" aria-hidden="true">*</span></label>
+        <p class="field-instructions" id="comments-instructions">Enter between 10 and 1,000 characters.</p>
+        <textarea id="comments" name="comments" rows="8" required minlength="10" maxlength="1000"
+                  aria-describedby="comments-instructions comments-error comments-counter" data-label="Comments"></textarea>
+      </div>
+
+      <section id="error-area" class="form-feedback error-area" aria-labelledby="error-heading" aria-live="polite" hidden>
+        <h2 id="error-heading">Please correct these form errors</h2>
+        <p id="name-error" class="field-error" hidden></p>
+        <p id="email-error" class="field-error" hidden></p>
+        <p id="comments-error" class="field-error" hidden></p>
+      </section>
+
+      <section id="information-area" class="form-feedback information-area" aria-labelledby="information-heading" hidden>
+        <h2 id="information-heading">Comment length</h2>
+        <p id="comments-counter">1,000 characters remaining.</p>
+      </section>
+
+      <input type="hidden" name="possible_bot" value="true">
+      <input id="form-errors-history" type="hidden" name="form-errors" value="[]">
+      <p class="form-actions"><button type="submit">Submit contact form</button></p>
+    </form>
+
+    <p class="form-alternative"><a href="form-no-js.html">Open the script-free version</a>.</p>
+  </main>
+  <footer>
+    <p><a href="mailto:w2deng@ucsd.edu">Email Wenqing</a> | <a href="experiments.html">Experiments</a><br>
+    <small>Copyright 2026 Wenqing Deng</small></p>
+  </footer>
+</body>
+</html>

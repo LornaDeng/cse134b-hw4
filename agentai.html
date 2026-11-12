@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AgentAI PDF Assistant in Wenqing Deng's software engineering portfolio.">
+  <title>AgentAI PDF Assistant | Wenqing Deng</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="theme.js" defer></script>
+</head>
+<body>
+  <header>
+    <p><a href="index.html"><span translate="no">Wenqing Deng</span></a></p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="form-no-js.html">HTML Form</a></li>
+        <li><a href="form-with-js.html">JS Form</a></li>
+      </ul>
+    </nav>
+    <div class="theme-controls js-only">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Switch to dark theme</button>
+    </div>
+  </header>
+  <main id="main-content">
+<h1>AgentAI PDF Assistant</h1>
+    <section aria-labelledby="agentai-problem">
+      <h2 id="agentai-problem">The user task</h2>
+      <p>A reader wants to ask a question about a PDF without manually searching the whole document.
+      I built a React and Express assistant that retrieves passages relevant to the question and uses them as context for an answer.</p>
+      <p>The document answer should be based on <em>the uploaded PDF</em>. A separate MCP and SerpAPI route handles web search,
+      and the interface presents the two responses separately.</p>
+    </section>
+    <section aria-labelledby="agentai-flow">
+      <h2 id="agentai-flow">From document to answer</h2>
+      <ol>
+        <li>The user uploads a PDF through the React interface.</li>
+        <li>The Express service loads its text, splits it into overlapping chunks, and creates embeddings.</li>
+        <li>The chunks and embeddings are stored in an in-memory vector index.</li>
+        <li>A question retrieves relevant chunks, which become context for the answer.</li>
+      </ol>
+      <figure>
+        <picture>
+          <source srcset="assets/images/agentai-flow.webp" type="image/webp">
+          <img src="assets/images/agentai-flow.png" width="320" height="240"
+               alt="AgentAI flow: upload a PDF, split and embed its text, retrieve passages, then generate an answer.">
+        </picture>
+        <figcaption>Diagram of the implemented PDF retrieval flow.</figcaption>
+      </figure>
+    </section>
+    <section aria-labelledby="agentai-decisions">
+      <h2 id="agentai-decisions">My implementation decisions</h2>
+      <h3>Reuse the document index</h3>
+      <p>I cached the vector index for the most recently processed document.
+      A file key based on its path, size, and modification time allows later questions about the same PDF to reuse the index.</p>
+      <h3>Keep independent answers available</h3>
+      <p>I ran the document and web requests concurrently using separate result handling.
+      If one provider fails, the other result can still be returned. I also added browser speech recognition and text-to-speech to the project.</p>
+    </section>
+    <section aria-labelledby="agentai-limits">
+      <h2 id="agentai-limits">Current scope</h2>
+      <p>The vector index lives in server memory, so it is not durable storage. The server tracks the current uploaded PDF,
+      and answer generation depends on external services. Retrieval provides relevant context but does not guarantee that every generated answer is correct.</p>
+    </section>
+    <p><a href="projects.html">Back to Projects</a> | <a href="onlineorder.html">Read about OnlineOrder</a></p>
+  </main>
+  <footer>
+    <p><a href="mailto:w2deng@ucsd.edu">Email Wenqing</a> | <a href="experiments.html">Experiments</a><br>
+    <small>Copyright 2026 Wenqing Deng</small></p>
+  </footer>
+</body>
+</html>

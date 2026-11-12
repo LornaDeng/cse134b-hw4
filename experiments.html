@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HTML Experiments in Wenqing Deng's software engineering portfolio.">
+  <title>HTML Experiments | Wenqing Deng</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="theme.js" defer></script>
+</head>
+<body>
+  <header>
+    <p><a href="index.html"><span translate="no">Wenqing Deng</span></a></p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="form-no-js.html">HTML Form</a></li>
+        <li><a href="form-with-js.html">JS Form</a></li>
+      </ul>
+    </nav>
+    <div class="theme-controls js-only">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Switch to dark theme</button>
+    </div>
+  </header>
+  <main id="main-content">
+<h1>HTML experiments</h1>
+    <p>This page demonstrates the experimental elements and the two custom elements required for HW2.</p>
+    <section aria-labelledby="custom-elements">
+      <h2 id="custom-elements">Custom elements</h2>
+      <project-summary>
+        <h3>Semantic CSS element</h3>
+        <p>The project-summary element groups a project title and description. Its scoped CSS establishes a block and a border.
+        The Projects page uses the same element for both featured projects.</p>
+      </project-summary>
+      <h3>Console message element</h3>
+      <p>The hello-world element logs Hello World! to the browser console when it is connected.
+      Its JavaScript does not add, remove, or change page content.</p>
+      <hello-world></hello-world>
+      <script>
+        class HelloWorld extends HTMLElement {
+          connectedCallback() {
+            console.log("Hello World!");
+          }
+        }
+        customElements.define("hello-world", HelloWorld);
+      </script>
+    </section>
+    <section aria-labelledby="media-examples">
+      <h2 id="media-examples">Audio and video</h2>
+      <h3>Audio notification sample</h3>
+      <p>A short synthesized notification tone demonstrates the audio element. It does not autoplay.</p>
+      <audio controls preload="metadata">
+        <source src="assets/media/notification.wav" type="audio/wav">
+        <a href="assets/media/notification.wav">Download the notification tone</a>.
+      </audio>
+      <h3>Video sample</h3>
+      <p>A silent flower clip from <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video">MDN's video example</a>
+      demonstrates the video element and a typed source.</p>
+      <video controls width="320" preload="metadata">
+        <source src="https://developer.mozilla.org/shared-assets/videos/flower.mp4" type="video/mp4">
+        <track kind="captions" src="assets/media/flower-captions.vtt" srclang="en" label="English" default>
+        <a href="https://developer.mozilla.org/shared-assets/videos/flower.mp4">Open the flower video</a>.
+      </video>
+    </section>
+    <section aria-labelledby="canvas-example">
+      <h2 id="canvas-example">Canvas drawing</h2>
+      <p>A static drawing represents the document-to-answer flow. The script only draws on the canvas; it adds no interactions.</p>
+      <canvas id="flow-canvas" width="320" height="100" role="img" aria-label="A document leads to an answer">
+        A document is processed to produce an answer.
+      </canvas>
+      <script>
+        const context = document.getElementById("flow-canvas").getContext("2d");
+        context.strokeRect(5, 20, 110, 55);
+        context.strokeRect(200, 20, 110, 55);
+        context.font = "16px serif";
+        context.fillText("Document", 22, 53);
+        context.fillText("Answer", 226, 53);
+        context.fillText("→", 150, 53);
+      </script>
+      <noscript><p>The canvas drawing and console message need the permitted demonstration scripts.
+      All portfolio text and navigation remain available without JavaScript.</p></noscript>
+    </section>
+    <section aria-labelledby="template-example">
+      <h2 id="template-example">Template content</h2>
+      <p>The source includes a reusable project note inside a template. Template contents remain inert and are not inserted into the page.</p>
+      <template id="project-note-template">
+        <article>
+          <h3>Project note</h3>
+          <p>A future project note can describe a problem, its implementation, and the result.</p>
+        </article>
+      </template>
+    </section>
+    <section aria-labelledby="static-state">
+      <h2 id="static-state">Static status elements</h2>
+      <h3>Processing progress example</h3>
+      <p>This illustrative state represents one completed step out of a three-step PDF processing task. It is not connected to a running task.</p>
+      <label for="processing-progress">Example processing progress</label>
+      <progress id="processing-progress" value="1" max="3">1 of 3 steps</progress>
+      <h3>Nonmodal dialog example</h3>
+      <project-summary>
+        <dialog open aria-labelledby="review-note">
+          <p id="review-note"><strong>Project review note</strong></p>
+          <p>Use the case study links to read each project's implementation details. This dialog is shown statically for the HTML demonstration.</p>
+        </dialog>
+      </project-summary>
+    </section>
+    <section aria-labelledby="mathml-example">
+      <h2 id="mathml-example">MathML extra credit</h2>
+      <p>Einstein's mass-energy equivalence relates energy E, mass m, and the speed of light c.</p>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow>
+      </math>
+      <h3>Why practical use took longer</h3>
+      <p>Being part of a specification did not mean that all browsers implemented MathML consistently.
+      Firefox and Safari supported it earlier, while Chrome and Chromium-based Edge lacked enabled support through version 108.
+      Their support from version 109 removed a major cross-browser obstacle.
+      MathML Core also gives browser implementations a more precisely defined subset.
+      MDN dates broad cross-browser availability to January 2023.</p>
+      <p>Sources: <a href="https://caniuse.com/mathml">Can I use MathML support table</a> and
+      <a href="https://developer.mozilla.org/en-US/docs/Web/MathML">MDN MathML documentation</a>.</p>
+    </section>
+  </main>
+  <footer>
+    <p><a href="mailto:w2deng@ucsd.edu">Email Wenqing</a> | <a href="experiments.html">Experiments</a><br>
+    <small>Copyright 2026 Wenqing Deng</small></p>
+  </footer>
+</body>
+</html>

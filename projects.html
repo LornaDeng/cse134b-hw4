@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Projects in Wenqing Deng's software engineering portfolio.">
+  <title>Projects | Wenqing Deng</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="theme.js" defer></script>
+</head>
+<body>
+  <header>
+    <p><a href="index.html"><span translate="no">Wenqing Deng</span></a></p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="form-no-js.html">HTML Form</a></li>
+        <li><a href="form-with-js.html">JS Form</a></li>
+      </ul>
+    </nav>
+    <div class="theme-controls js-only">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Switch to dark theme</button>
+    </div>
+  </header>
+  <main id="main-content">
+<h1>Projects</h1>
+    <p>These two case studies explain a user task, my implementation work, and the current scope of each application.</p>
+    <article aria-labelledby="agentai-preview">
+      <project-summary>
+        <h2 id="agentai-preview">AgentAI PDF Assistant</h2>
+        <p>An assistant that retrieves information from an uploaded PDF and can also produce a separate response from web search results.</p>
+        <p>Project stack: <b>React</b>, <b>Express</b>, LangChain, OpenAI, MCP, and SerpAPI.</p>
+        <p><a href="agentai.html">Read the AgentAI case study</a>.</p>
+      </project-summary>
+    </article>
+    <article aria-labelledby="onlineorder-preview">
+      <project-summary>
+        <h2 id="onlineorder-preview">OnlineOrder</h2>
+        <p>A food ordering workflow with restaurant and menu discovery, session-based sign-in, and persistent cart management.</p>
+        <p>Project stack: <b>Java</b>, <b>Spring Boot</b>, PostgreSQL, React, and Ant Design.</p>
+        <p><a href="onlineorder.html">Read the OnlineOrder case study</a>.</p>
+      </project-summary>
+    </article>
+    <section aria-labelledby="reading-guide">
+      <h2 id="reading-guide">What to look for</h2>
+      <p>AgentAI focuses on retrieving useful context and handling independent answer providers.
+      OnlineOrder focuses on keeping authentication, cart items, and totals consistent across the interface and backend.</p>
+    </section>
+  </main>
+  <footer>
+    <p><a href="mailto:w2deng@ucsd.edu">Email Wenqing</a> | <a href="experiments.html">Experiments</a><br>
+    <small>Copyright 2026 Wenqing Deng</small></p>
+  </footer>
+</body>
+</html>

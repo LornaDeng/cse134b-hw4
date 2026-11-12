@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A contact form that works without JavaScript in Wenqing Deng's portfolio.">
+  <title>HTML Contact Form | Wenqing Deng</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header>
+    <p><a href="index.html"><span translate="no">Wenqing Deng</span></a></p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="form-no-js.html" aria-current="page">HTML Form</a></li>
+        <li><a href="form-with-js.html">JS Form</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main-content">
+    <h1>Contact form without JavaScript</h1>
+    <p>This form uses native HTML validation and remains fully functional when JavaScript is unavailable.</p>
+
+    <form class="contact-form" action="https://httpbin.org/post" method="post">
+      <p class="form-intro"><span class="required-note"><span class="required-marker" aria-hidden="true">*</span> Required field.</span>
+      Enter a name of 1–100 characters and a comment of 10–1,000 characters.</p>
+
+      <div class="form-field">
+        <label for="name">Name <span class="required-marker" aria-hidden="true">*</span></label>
+        <p class="field-instructions" id="name-instructions">Enter your name. One-character names and punctuation such as apostrophes and hyphens are accepted.</p>
+        <input id="name" name="name" type="text" autocomplete="name" required minlength="1" maxlength="100" aria-describedby="name-instructions">
+      </div>
+
+      <div class="form-field">
+        <label for="email">Email <span class="required-marker" aria-hidden="true">*</span></label>
+        <p class="field-instructions" id="email-instructions">Enter an address in a format such as name@example.com.</p>
+        <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-instructions">
+      </div>
+
+      <div class="form-field">
+        <label for="comments">Comments <span class="required-marker" aria-hidden="true">*</span></label>
+        <p class="field-instructions" id="comments-instructions">Enter between 10 and 1,000 characters.</p>
+        <textarea id="comments" name="comments" rows="8" required minlength="10" maxlength="1000" aria-describedby="comments-instructions"></textarea>
+      </div>
+
+      <input type="hidden" name="possible_bot" value="true">
+      <p class="form-actions"><button type="submit">Submit contact form</button></p>
+    </form>
+
+    <p class="form-alternative"><a href="form-with-js.html">Try the JavaScript-enhanced version</a>.</p>
+  </main>
+  <footer>
+    <p><a href="mailto:w2deng@ucsd.edu">Email Wenqing</a> | <a href="experiments.html">Experiments</a><br>
+    <small>Copyright 2026 Wenqing Deng</small></p>
+  </footer>
+</body>
+</html>

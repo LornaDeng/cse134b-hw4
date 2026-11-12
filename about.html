@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="About in Wenqing Deng's software engineering portfolio.">
+  <title>About | Wenqing Deng</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="theme.js" defer></script>
+</head>
+<body>
+  <header>
+    <p><a href="index.html"><span translate="no">Wenqing Deng</span></a></p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="form-no-js.html">HTML Form</a></li>
+        <li><a href="form-with-js.html">JS Form</a></li>
+      </ul>
+    </nav>
+    <div class="theme-controls js-only">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Switch to dark theme</button>
+    </div>
+  </header>
+  <main id="main-content">
+<h1>About me</h1>
+    <section aria-labelledby="education">
+      <h2 id="education">Education and interests</h2>
+      <p>I am pursuing a B.S. in Mathematics-Computer Science at UC San Diego, from September 2023 to an expected June 2027 graduation.</p>
+      <p>My coursework includes Data Structures, Systems Programming, Machine Learning, Recommender Systems,
+      Object-Oriented Design, Graph Theory, Probability, and Cryptography. My experience includes full-stack development,
+      backend systems, and applications that retrieve information for AI-generated answers.</p>
+      <p>I have also achieved USACO Gold.</p>
+    </section>
+    <section aria-labelledby="hirebeat">
+      <h2 id="hirebeat">Hirebeat internship</h2>
+      <p>Software Development Engineer Intern, July to September 2025.</p>
+      <ul>
+        <li>Refactored Google reCAPTCHA v3 into an app-level React provider so registration pages could share token execution.</li>
+        <li>Fixed registration confirmation to use the submitted email, added a cancel path, and built reusable account activation layouts.</li>
+        <li>Used functional React state updates to prevent notification changes from overwriting one another, and added scroll regions for long notifications.</li>
+      </ul>
+      <h3>A concrete debugging example</h3>
+      <p>Notification updates could use an older copy of state, often called <i>stale state</i>.
+      I changed these updates to use the previous state supplied by React's functional setter.
+      This addressed the update logic in addition to how the notifications appeared on screen.</p>
+    </section>
+    <section aria-labelledby="skills">
+      <h2 id="skills">Skills connected to examples</h2>
+      <ul>
+        <li>React and Express: the upload and question-answering flow in <a href="agentai.html">AgentAI</a>.</li>
+        <li>Java, Spring Boot, and PostgreSQL: authentication and cart services in <a href="onlineorder.html">OnlineOrder</a>.</li>
+        <li>React and Next.js: shared providers, layouts, and notification updates at Hirebeat.</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p><a href="mailto:w2deng@ucsd.edu">Email Wenqing</a> | <a href="experiments.html">Experiments</a><br>
+    <small>Copyright 2026 Wenqing Deng</small></p>
+  </footer>
+</body>
+</html>

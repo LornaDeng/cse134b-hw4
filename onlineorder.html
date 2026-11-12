@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="OnlineOrder in Wenqing Deng's software engineering portfolio.">
+  <title>OnlineOrder | Wenqing Deng</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="theme.js" defer></script>
+</head>
+<body>
+  <header>
+    <p><a href="index.html"><span translate="no">Wenqing Deng</span></a></p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="form-no-js.html">HTML Form</a></li>
+        <li><a href="form-with-js.html">JS Form</a></li>
+      </ul>
+    </nav>
+    <div class="theme-controls js-only">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Switch to dark theme</button>
+    </div>
+  </header>
+  <main id="main-content">
+<h1>OnlineOrder</h1>
+    <section aria-labelledby="order-problem">
+      <h2 id="order-problem">The user task</h2>
+      <p>I built a food ordering workflow where a user can register, sign in, browse restaurants and menus,
+      and add items to a cart. The React and Ant Design interface communicates with a Java Spring Boot service backed by PostgreSQL.</p>
+    </section>
+    <section aria-labelledby="order-flow">
+      <h2 id="order-flow">The ordering flow</h2>
+      <ol>
+        <li>Register or sign in to establish an authenticated session.</li>
+        <li>Browse restaurants and their menu items.</li>
+        <li>Add menu items and review quantities and the total in the cart.</li>
+        <li>Use the demo checkout, which clears the cart.</li>
+      </ol>
+      <figure>
+        <picture>
+          <source srcset="assets/images/onlineorder-flow.webp" type="image/webp">
+          <img src="assets/images/onlineorder-flow.png" width="320" height="240"
+               alt="OnlineOrder flow: sign in, browse a menu, add an item, and review the cart.">
+        </picture>
+        <figcaption>Diagram of the user journey through the application.</figcaption>
+      </figure>
+    </section>
+    <section aria-labelledby="order-decisions">
+      <h2 id="order-decisions">My implementation decisions</h2>
+      <h3>Keep cart updates together</h3>
+      <p>I used Spring Data JDBC entities and repositories for persistence and transactional services for cart changes.
+      Adding an item updates its quantity and the cart total together. Cart changes also invalidate the cached cart view.</p>
+      <h3>Connect the interface to the authenticated user</h3>
+      <p>The React client sends credentialed requests so the backend can use the user's session.
+      The backend derives the customer from the authenticated principal. The client keeps live cart state and uses centralized API error handling.</p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="320" height="165" viewBox="0 0 320 165"
+           role="img" aria-labelledby="order-diagram-title order-diagram-desc">
+        <title id="order-diagram-title">OnlineOrder application layers</title>
+        <desc id="order-diagram-desc">React sends requests to Spring Boot, which reads and writes PostgreSQL data.</desc>
+        <rect x="15" y="5" width="290" height="40" fill="white" stroke="black"></rect>
+        <text x="125" y="30">React</text>
+        <path d="M160 45 V60 M155 55 L160 60 L165 55" fill="none" stroke="black"></path>
+        <rect x="15" y="62" width="290" height="40" fill="white" stroke="black"></rect>
+        <text x="110" y="88">Spring Boot</text>
+        <path d="M160 102 V117 M155 112 L160 117 L165 112" fill="none" stroke="black"></path>
+        <rect x="15" y="119" width="290" height="40" fill="white" stroke="black"></rect>
+        <text x="113" y="145">PostgreSQL</text>
+      </svg>
+    </section>
+    <section aria-labelledby="order-limits">
+      <h2 id="order-limits">Current scope</h2>
+      <p>Checkout is a demonstration that removes cart items and resets the total. Payment processing,
+      delivery fulfillment, and an order history are outside the current implementation.</p>
+    </section>
+    <p><a href="projects.html">Back to Projects</a> | <a href="agentai.html">Read about AgentAI</a></p>
+  </main>
+  <footer>
+    <p><a href="mailto:w2deng@ucsd.edu">Email Wenqing</a> | <a href="experiments.html">Experiments</a><br>
+    <small>Copyright 2026 Wenqing Deng</small></p>
+  </footer>
+</body>
+</html>
